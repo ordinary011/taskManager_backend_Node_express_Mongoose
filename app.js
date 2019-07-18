@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const socket = require('socket.io');
+const Task = require('./db/models/taskModel');
 
 const app = express();
 
@@ -34,3 +35,5 @@ io.on('connection', socket => {
 		io.emit('sharing', data);
 	});
 });
+
+module.exports = app; // for tests
